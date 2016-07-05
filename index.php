@@ -13,7 +13,7 @@ and open the template in the editor.
         <?php
         $url = 'http://www.usinflationcalculator.com/inflation/';
         $curl = curl_init();  
-        curl_setopt($curl, CURLOPT_HEADER, $curl);  
+        curl_setopt($curl, CURLOPT_HEADER, $url);  
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
         $content = curl_exec($curl);
         $source = curl_getinfo($curl, CURLINFO_HTTP_CODE);
