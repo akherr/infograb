@@ -30,7 +30,6 @@ and open the template in the editor.
         }
         echo $content;
         echo $source;
-        echo $paragraphs;
         // put your code here
         ?>
     </body>
