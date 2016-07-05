@@ -18,8 +18,6 @@ and open the template in the editor.
         $content = curl_exec($curl);
         $source = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
-        
-        echo '<html><p>I Am Here Now</p></html>';
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
@@ -28,7 +26,7 @@ and open the template in the editor.
         {
             echo $paragraph->nodeValue, PHP_EOL;
             echo $paragraph->getAttribute('href');
-            echo '\r\n';
+            echo '<html>\r\n</html>';
         }
         // put your code here
         ?>
