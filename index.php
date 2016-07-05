@@ -23,8 +23,10 @@ and open the template in the editor.
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
+        $paragraphs = $dom->getElementsByTagName('p');
         echo $content;
         echo $source;
+        echo $paragraphs;
         // put your code here
         ?>
     </body>
