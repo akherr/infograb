@@ -13,12 +13,16 @@ and open the template in the editor.
         <?php
         $url = 'http://www.usinflationcalculator.com/inflation/';
         $curl = curl_init($url);  
-        curl_setopt($ch, CURLOPT_HEADER, 0);  
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);  
-        $content = curl_exec($ch);
+        curl_setopt($curl, CURLOPT_HEADER, 0);  
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+        $content = curl_exec($curl);
         $source = curl_getinfo($curl, CURLINFO_HTTP_CODE);
         curl_close($curl);
+        
+        $dom = new DOMDocument();
+        $dom->loadHTML($content);
         echo $content;
+        echo $source;
         // put your code here
         ?>
     </body>
