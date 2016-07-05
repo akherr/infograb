@@ -23,13 +23,11 @@ and open the template in the editor.
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
-        $paragraphs = $dom->getElementsByTagName('p');
+        $paragraphs = $dom->getElementsByTagName('a');
         foreach ($paragraphs as $paragraph)
         {
             echo $paragraph->nodeValue, PHP_EOL;
         }
-        echo $content;
-        echo $source;
         // put your code here
         ?>
     </body>
