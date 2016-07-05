@@ -27,6 +27,8 @@ and open the template in the editor.
         foreach ($paragraphs as $paragraph)
         {
             echo $paragraph->nodeValue, PHP_EOL;
+            echo $paragraph->getAttribute('href');
+            echo '\n';
         }
         // put your code here
         ?>
