@@ -24,7 +24,7 @@ and open the template in the editor.
         $paragraphs = $dom->getElementsByTagName('a');
         foreach ($paragraphs as $paragraph)
         {
-            if(strcmp($paragraph->nodeValue, "Historical US Inflation Rates"))
+            if(strcmp($paragraph->nodeValue, "Historical US Inflation Rates") !== 0)
             {
                 echo '<p>FOUND TRUE VALUE<p>';
             }
