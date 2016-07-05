@@ -24,7 +24,12 @@ and open the template in the editor.
         $paragraphs = $dom->getElementsByTagName('a');
         foreach ($paragraphs as $paragraph)
         {
+            if(strcmp($paragraph->nodeValue, "Historical US Inflation Rates"))
+            {
+                echo '<p>FOUND TRUE VALUE<p>';
+            }
             echo $paragraph->nodeValue, PHP_EOL;
+            
             echo $paragraph->getAttribute('href');
             echo '<html>\r\n</html>';
         }
