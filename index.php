@@ -24,6 +24,10 @@ and open the template in the editor.
         $dom = new DOMDocument();
         $dom->loadHTML($content);
         $paragraphs = $dom->getElementsByTagName('p');
+        foreach ($paragraphs as $paragraph)
+        {
+            echo $paragraph->nodeValue, PHP_EOL;
+        }
         echo $content;
         echo $source;
         echo $paragraphs;
