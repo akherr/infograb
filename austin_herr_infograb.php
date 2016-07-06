@@ -103,6 +103,7 @@ foreach($table->getElementsByTagName('tr') as $tr)
         $yearAvgArray[$currentyear] = $tds->item(12)->nodeValue;
     }
 }
+//sort the array in descending order
 arsort($yearAvgArray);
 
 //print the description
