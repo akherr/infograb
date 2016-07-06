@@ -104,7 +104,7 @@ and open the template in the editor.
                 //}
             }
         }
-        echo '<p> Size Of Array: ' . $yearAvgArray->sizeof() . '</p>';
+        echo '<p> Size Of Array: ' . sizeof($yearAvgArray) . '</p>';
         echo '<p>This page contains data from JAN ' . $minyear . 'to DEC ' . $maxyear;
         echo '<p> Min Year: ' . $minyear . '</p>';
         echo '<p> Max Year: ' . $maxyear . '</p>';
