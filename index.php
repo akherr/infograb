@@ -71,7 +71,7 @@ and open the template in the editor.
             $tds = $tr->getElementsByTagName('td'); // get the columns in this row
             echo '<p>' . strcmp($tds->item(12)->nodeValue, "&nbsp;") . '</p>';
             echo '<div>' . $tds->item(12)->nodeValue . '</div>';
-            if(($tds->length == 13) and (strcmp($tr->getElementsByTagName('tds')->item(12)->nodeValue, "&nbsp;") !==0))
+            if(($tds->length == 13) and (is_numeric($tds->item(12)->nodeValue)))
             {
                 //echo $tds->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
