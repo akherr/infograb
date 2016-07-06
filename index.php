@@ -48,8 +48,26 @@ and open the template in the editor.
                 $found = true;
             }
         }
+        $curl = curl_init();  
+        curl_setopt($curl, CURLOPT_URL, $pageurl);  
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);  
+        $content = curl_exec($curl);
+        $source = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        curl_close($curl);
+        libxml_use_internal_errors(true);
+        $dom = new DOMDocument();
+        $dom->loadHTML($content);
+        $rows = $dom->getElementByTagName('tr');
+        
+        foreach ($rows as $row) 
+        {
+            $cols = $row->getElementsByTagName('td');
+            echo $cols[2];
+        }
+        
+        
         echo '<p>Description:</p>' . $description;
-        echo '<p>URL:</p>' . $url
+        echo '<p>URL:</p>' . $pageurl;
         ?>
     </body>
 </html>
