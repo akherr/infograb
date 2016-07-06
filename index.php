@@ -21,18 +21,35 @@ and open the template in the editor.
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
-        $paragraphs = $dom->getElementsByTagName('a');
+        $anchors = $dom->getElementsByTagName('a');
+        $paragraphs = $dom->getElementsByTagName('p');
         $pageurl;
-        foreach ($paragraphs as $paragraph)
+        $description;
+        foreach ($anchors as $anchor)
         {
-            if(strcmp($paragraph->getAttribute('title'), "Historical Inflation Rates: 1914-2008") == 0)
+            if(strcmp($anchor->getAttribute('title'), "Historical Inflation Rates: 1914-2008") == 0)
             {
-                echo '<p>FOUND TRUE VALUE<p>';
-                echo $paragraph->getAttribute('href');
-                echo $paragraph->nodeValue, PHP_EOL;
-                
+                echo '<p>FOUND HREF<p>';
+                $pageurl = $anchor->getAttribute('href');
+                echo $anchor->nodeValue, PHP_EOL;
             }
         }
+        $found;
+        foreach($paragraphs as $paragraph)
+        {
+            if($found)
+            {
+                $description = $paragraph->nodeValue;
+                $found = false;
+            }
+            if(strcmp($paragraph->nodeValue,"Historical Inflation Rates: 1914 to Current") == 0)
+            {
+                echo'<p>FOUND PARAGRAPH</p>';
+                $found = true;
+            }
+        }
+        echo '<p>Description:</p>' . $description;
+        echo '<p>URL:</p>' . $url
         ?>
     </body>
 </html>
