@@ -92,14 +92,15 @@ foreach($table->getElementsByTagName('tr') as $tr)
         //}
     }
 }
-
+echo $description, PHP_EOL;
+echo 'This page contains data from JAN ' . $minyear . ' to DEC ' . $maxyear;
 echo '#------------------#' . PHP_EOL;
 echo '| year | inflation |' . PHP_EOL;
 echo '#------------------#' . PHP_EOL;
 foreach ($yearAvgArray as $key => $value) 
 {
     $valuesize = strlen($value);
-    echo '| ' . $key . ' |   ' . $value . str_repeat(' ', 9-$valuesize) . '|' . PHP_EOL;
+    echo '| ' . $key . ' |   ' . $value . str_repeat(' ', 8-$valuesize) . '|' . PHP_EOL;
 }
 echo '#------------------#' . PHP_EOL;
 //echo '<p> Size Of Array: ' . sizeof($yearAvgArray) . '</p>';
