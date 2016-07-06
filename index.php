@@ -69,8 +69,6 @@ and open the template in the editor.
         {
 
             $tds = $tr->getElementsByTagName('td'); // get the columns in this row
-            echo '<p>' . strcmp($tds->item(12)->nodeValue, "&nbsp;") . '</p>';
-            echo '<div>' . $tds->item(12)->nodeValue . '</div>';
             if(($tds->length == 13) and (is_numeric($tds->item(12)->nodeValue)))
             {
                 //echo $tds->item(0)->nodeValue;
