@@ -72,6 +72,7 @@ and open the template in the editor.
             if($tds->length == 13)
             {
                 //echo $tds->item(0)->nodeValue;
+                echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
                 echo '<div>' . $tds->item(12)->nodeValue . '</div>';
                 echo '<p>WAT</p>';
                 echo PHP_EOL;
