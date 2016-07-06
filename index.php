@@ -67,6 +67,7 @@ and open the template in the editor.
         //}
         $minyear = 0;
         $maxyear = 0;
+        $currentyear = 0;
         foreach($table->getElementsByTagName('tr') as $tr)
         {
 
@@ -74,10 +75,11 @@ and open the template in the editor.
             if(($tds->length == 13) and (is_numeric($tds->item(12)->nodeValue)))
             {
                 //echo $tds->item(0)->nodeValue;
+                $currentyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
-                if($minyear > $tr->getElementsByTagName('th')->item(0)->nodeValue)
+                if(($minyear > $currentyear) or ($minyear == 0))
                 {
-                    $minyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
+                    $minyear = $currentyear;
                 }
                 elseif($maxyear < $tr->getElementsByTagName('th')->item(0)->nodeValue)
                 {
