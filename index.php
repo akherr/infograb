@@ -34,7 +34,7 @@ and open the template in the editor.
                 echo $anchor->nodeValue, PHP_EOL;
             }
         }
-        $found;
+        $found = false;
         foreach($paragraphs as $paragraph)
         {
             if($found)
@@ -57,15 +57,34 @@ and open the template in the editor.
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
-        $tables = $dom->getElementsByTagName('table');
-        $rows = $tables->item(0)->getElementsByTagName('tr');
+        $table = $dom->getElementsByTagName('table')->item(0);
+        //$rows = $tables->item(0)->getElementsByTagName('tr');
         
-        foreach ($rows as $row) 
+        //foreach ($rows as $row) 
+        //{
+            //$cols = $row->getElementsByTagName('td');
+            //echo $cols[2];
+        //}
+        foreach($table->getElementsByTagName('tr') as $tr)
         {
-            $cols = $row->getElementsByTagName('td');
-            echo $cols[2];
+            $tds = $tr->getElementsByTagName('td'); // get the columns in this row
+            if($tds->length == 13)
+            {
+                echo $tds->item(0)->nodeValue;
+                echo $tds->item(13)->nodeValue;
+                //// check if B and D are found in column 2 and 4
+                //if(trim($tds->item(1)->nodeValue) == 'B' && trim($tds->item(3)->nodeValue) == 'D')
+                //{
+                    // found B and D in the second and fourth columns
+                    // echo out each column value
+                    //echo $tds->item(0)->nodeValue; // A
+                    //echo $tds->item(1)->nodeValue; // B
+                    //echo $tds->item(2)->nodeValue; // C
+                    //echo $tds->item(3)->nodeValue; // D
+                    //break; // don't check any further rows
+                //}
+            }
         }
-        
         
         echo '<p>Description:</p>' . $description;
         echo '<p>URL:</p>' . $pageurl;
