@@ -68,7 +68,7 @@ and open the template in the editor.
         foreach($table->getElementsByTagName('tr') as $tr)
         {
             $tds = $tr->getElementsByTagName('td'); // get the columns in this row
-            if($tds->length == 13 and (strcmp($tr->getElementsByTagName('th')->item(0)->nodeValue, "&nbsp")))
+            if(($tds->length == 13) and (strcmp($tr->getElementsByTagName('th')->item(0)->nodeValue, "&nbsp") !==0))
             {
                 //echo $tds->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
