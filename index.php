@@ -67,9 +67,10 @@ and open the template in the editor.
         //}
         foreach($table->getElementsByTagName('tr') as $tr)
         {
-            echo '<p>' . strcmp($tr->getElementsByTagName('tds')->item(12)->nodeValue, "&nbsp;") . '</p>';
-            echo '<div>' . $tr->getElementsByTagName('tds')->item(12)->nodeValue . '</div>';
+
             $tds = $tr->getElementsByTagName('td'); // get the columns in this row
+            echo '<p>' . strcmp($tds->item(12)->nodeValue, "&nbsp;") . '</p>';
+            echo '<div>' . $tds->item(12)->nodeValue . '</div>';
             if(($tds->length == 13) and (strcmp($tr->getElementsByTagName('tds')->item(12)->nodeValue, "&nbsp;") !==0))
             {
                 //echo $tds->item(0)->nodeValue;
