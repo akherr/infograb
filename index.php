@@ -22,18 +22,17 @@ and open the template in the editor.
         $dom = new DOMDocument();
         $dom->loadHTML($content);
         $paragraphs = $dom->getElementsByTagName('a');
+        $pageurl;
         foreach ($paragraphs as $paragraph)
         {
             if(strcmp($paragraph->getAttribute('title'), "Historical Inflation Rates: 1914-2008") == 0)
             {
                 echo '<p>FOUND TRUE VALUE<p>';
+                echo $paragraph->getAttribute('href');
+                echo $paragraph->nodeValue, PHP_EOL;
+                
             }
-            echo $paragraph->nodeValue, PHP_EOL;
-            
-            echo $paragraph->getAttribute('href');
-            echo '<html>\r\n</html>';
         }
-        // put your code here
         ?>
     </body>
 </html>
