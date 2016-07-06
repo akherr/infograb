@@ -81,9 +81,9 @@ and open the template in the editor.
                 {
                     $minyear = $currentyear;
                 }
-                elseif($maxyear < $tr->getElementsByTagName('th')->item(0)->nodeValue)
+                elseif(($maxyear < $currentyear) or ($minyear == 0))
                 {
-                    $maxyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
+                    $maxyear = $currentyear;
                 }
                     
                 echo '<div>' . $tds->item(12)->nodeValue . '</div>';
@@ -102,6 +102,7 @@ and open the template in the editor.
             }
         }
         echo '<p> Min Year: ' . $minyear . '</p>';
+        echo '<p> Max Year: ' . $maxyear . '</p>';
         echo '<p>Description:</p>' . $description;
         echo '<p>URL:</p>' . $pageurl;
         ?>
