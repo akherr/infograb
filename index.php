@@ -67,7 +67,7 @@ and open the template in the editor.
         //}
         $minyear = 0;
         $maxyear = 0;
-        $currentyear = 0;
+        echo '<p>This page contains data from JAN ' . $minyear . 'to DEC ' . $maxyear;
         foreach($table->getElementsByTagName('tr') as $tr)
         {
 
