@@ -58,7 +58,7 @@ and open the template in the editor.
         $dom = new DOMDocument();
         $dom->loadHTML($content);
         $tables = $dom->getElementsByTagName('table');
-        $rows = $tables->item(1)->getElementsByTagName('tr');
+        $rows = $tables->item(0)->getElementsByTagName('tr');
         
         foreach ($rows as $row) 
         {
