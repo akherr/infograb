@@ -103,6 +103,8 @@ foreach($table->getElementsByTagName('tr') as $tr)
         $yearAvgArray[$currentyear] = $tds->item(12)->nodeValue;
     }
 }
+arsort($yearAvgArray);
+
 //print the description
 echo $description, PHP_EOL;
 //print the min year and max year, with the months...
