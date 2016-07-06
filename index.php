@@ -65,6 +65,8 @@ and open the template in the editor.
             //$cols = $row->getElementsByTagName('td');
             //echo $cols[2];
         //}
+        $minyear = 0;
+        $maxyear = 0;
         foreach($table->getElementsByTagName('tr') as $tr)
         {
 
@@ -73,6 +75,15 @@ and open the template in the editor.
             {
                 //echo $tds->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
+                if($minyear > $tr->getElementsByTagName('th')->item(0)->nodeValue)
+                {
+                    $minyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
+                }
+                elseif($maxyear < $tr->getElementsByTagName('th')->item(0)->nodeValue)
+                {
+                    $maxyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
+                }
+                    
                 echo '<div>' . $tds->item(12)->nodeValue . '</div>';
                 echo PHP_EOL;
                 //// check if B and D are found in column 2 and 4
@@ -88,7 +99,7 @@ and open the template in the editor.
                 //}
             }
         }
-        
+        echo '<p> Min Year: ' . $minyear . '</p>';
         echo '<p>Description:</p>' . $description;
         echo '<p>URL:</p>' . $pageurl;
         ?>
