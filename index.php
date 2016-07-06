@@ -67,7 +67,9 @@ and open the template in the editor.
         //}
         $minyear = 0;
         $maxyear = 0;
-        echo '<p>This page contains data from JAN ' . $minyear . 'to DEC ' . $maxyear;
+        $yearAvgArray = [];
+        
+        echo '<p>This page contains data from JAN ' . $minyear . ' to DEC ' . $maxyear;
         foreach($table->getElementsByTagName('tr') as $tr)
         {
 
@@ -75,6 +77,7 @@ and open the template in the editor.
             if(($tds->length == 13) and (is_numeric($tds->item(12)->nodeValue)))
             {
                 //echo $tds->item(0)->nodeValue;
+                //get the current year from the th tag for the row
                 $currentyear = $tr->getElementsByTagName('th')->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
                 if(($minyear > $currentyear) or ($minyear == 0))
@@ -85,7 +88,7 @@ and open the template in the editor.
                 {
                     $maxyear = $currentyear;
                 }
-                    
+                $yearAvgArray[$currentyear] = $tds->item(12)->nodeValue;
                 echo '<div>' . $tds->item(12)->nodeValue . '</div>';
                 echo PHP_EOL;
                 //// check if B and D are found in column 2 and 4
@@ -101,6 +104,8 @@ and open the template in the editor.
                 //}
             }
         }
+        echo '<p> Size Of Array: ' . $yearAvgArray->sizeof() . '</p>';
+        echo '<p>This page contains data from JAN ' . $minyear . 'to DEC ' . $maxyear;
         echo '<p> Min Year: ' . $minyear . '</p>';
         echo '<p> Max Year: ' . $maxyear . '</p>';
         echo '<p>Description:</p>' . $description;
