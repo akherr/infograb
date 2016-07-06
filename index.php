@@ -57,7 +57,8 @@ and open the template in the editor.
         libxml_use_internal_errors(true);
         $dom = new DOMDocument();
         $dom->loadHTML($content);
-        $rows = $dom->getElementsByTagName('tr');
+        $tables = $dom->getElementsByTagName('table');
+        $rows = $tables->item(1)->getElementsByTagName('tr');
         
         foreach ($rows as $row) 
         {
