@@ -68,12 +68,11 @@ and open the template in the editor.
         foreach($table->getElementsByTagName('tr') as $tr)
         {
             $tds = $tr->getElementsByTagName('td'); // get the columns in this row
-            if($tds->length == 13)
+            if($tds->length == 13 and (strcmp($tr->getElementsByTagName('th')->item(0)->nodeValue, "&nbsp")))
             {
                 //echo $tds->item(0)->nodeValue;
                 echo '<p>Year?: ' . $tr->getElementsByTagName('th')->item(0)->nodeValue . '</p>';
                 echo '<div>' . $tds->item(12)->nodeValue . '</div>';
-                echo '<p>WAT</p>';
                 echo PHP_EOL;
                 //// check if B and D are found in column 2 and 4
                 //if(trim($tds->item(1)->nodeValue) == 'B' && trim($tds->item(3)->nodeValue) == 'D')
