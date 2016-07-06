@@ -98,8 +98,8 @@ echo '| year | inflation |' . PHP_EOL;
 echo '#------------------#' . PHP_EOL;
 foreach ($yearAvgArray as $key => $value) 
 {
-    $valuesize = $value->length;
-    echo '| ' . $key . ' |   ' . $value . str_repeat('&nbsp', 11-$valuesize) . '|' . PHP_EOL;
+    $valuesize = $strlen($value);
+    echo '| ' . $key . ' |   ' . $value . str_repeat(' ', 11-$valuesize) . '|' . PHP_EOL;
 }
 echo '#------------------#' . PHP_EOL;
 //echo '<p> Size Of Array: ' . sizeof($yearAvgArray) . '</p>';
