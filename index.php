@@ -93,14 +93,14 @@ foreach($table->getElementsByTagName('tr') as $tr)
     }
 }
 
-echo '#------------------#';
-echo '| year | inflation |';
-echo '#------------------#';
+echo '#------------------#' . PHP_EOL;
+echo '| year | inflation |' . PHP_EOL;
+echo '#------------------#' . PHP_EOL;
 foreach ($yearAvgArray as $key => $value) 
 {
-    echo '| ' . $key . ' |   ' . $value . '  |';
+    echo '| ' . $key . ' |   ' . $value . '  |' . PHP_EOL;
 }
-echo '#------------------#';
+echo '#------------------#' . PHP_EOL;
 //echo '<p> Size Of Array: ' . sizeof($yearAvgArray) . '</p>';
 //echo '<p>This page contains data from JAN ' . $minyear . 'to DEC ' . $maxyear;
 //echo '<p> Min Year: ' . $minyear . '</p>';
